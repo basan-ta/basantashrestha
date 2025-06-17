@@ -43,7 +43,7 @@ export function AcademicProfile() {
           <div className="flex gap-4 mt-6">
             <Button variant="outline" size="icon">
               <a 
-                href="https://github.com/YourGithubUsername" 
+                href="https://github.com/basan-ta" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -53,7 +53,7 @@ export function AcademicProfile() {
             </Button>
             <Button variant="outline" size="icon">
               <a 
-                href="https://linkedin.com/in/YourLinkedInUsername" 
+                href="https://np.linkedin.com/in/basanta-shrestha-144a43317" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >

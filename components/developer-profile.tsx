@@ -59,12 +59,24 @@ export function DeveloperProfile() {
           </p>
           <div className="flex gap-4 mt-6">
             <Button variant="outline" size="icon">
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
+              <a 
+                href="https://github.com/basan-ta" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </a>
             </Button>
             <Button variant="outline" size="icon">
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
+              <a 
+                href="https://np.linkedin.com/in/basanta-shrestha-144a43317" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </a>
             </Button>
             <Button variant="outline" size="icon">
               <Mail className="h-5 w-5" />
