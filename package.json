@@ -1,7 +1,10 @@
 {
-  "name": "my-v0-project",
+  "name": "basantashrestha",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "."
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
