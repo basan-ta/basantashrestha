@@ -15,25 +15,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
       - uses: pnpm/action-setup@v2
         with:
           version: 8
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
+          cache: 'pnpm'
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
       - name: Install dependencies
         run: pnpm install
       - name: Build
         run: pnpm build
-      - name: Configure SSL
+      - name: Prepare artifacts
         run: |
-          mkdir -p out/.well-known/pki-validation
-          echo "This site requires HTTPS" > out/.well-known/pki-validation/ssl.txt
+          touch out/.nojekyll
+          cp CNAME out/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

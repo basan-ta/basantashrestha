@@ -7,16 +7,8 @@ import { BlogSection } from "@/components/blog-section"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <header className="container mx-auto py-6 px-6 flex justify-start items-center">
-        <div className="flex items-center">
-          <ModeToggle />
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 py-12">
-        <ProfileContent />
-      </div>
+    <main className="container mx-auto px-4 py-8">
+      <ProfileContent />
     </main>
   )
 }
