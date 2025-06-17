@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { Download, BookOpen, GraduationCap, FileText, Users } from "lucide-react"
+import { Download, BookOpen, GraduationCap, FileText, Users, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { ProfileModeToggle } from "@/components/profile-mode-toggle"
 
 export function AcademicProfile() {
   const [mounted, setMounted] = useState(false)
@@ -20,6 +21,7 @@ export function AcademicProfile() {
 
   return (
     <div className="author-profile hidden space-y-12">
+      {/* Introduction section */}
       <section className="flex flex-col md:flex-row gap-8 items-center">
         <div className="w-full md:w-1/3">
           <div className="relative w-64 h-64 mx-auto">
@@ -39,6 +41,32 @@ export function AcademicProfile() {
             knowledge in AI, Robotics, and Microcontroller programming.
           </p>
           <div className="flex gap-4 mt-6">
+            <Button variant="outline" size="icon">
+              <a 
+                href="https://github.com/YourGithubUsername" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="icon">
+              <a 
+                href="https://linkedin.com/in/YourLinkedInUsername" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="icon">
+              <a href="mailto:basanta.shrestha008@gmail.com">
+                <Mail className="h-5 w-5" />
+                <span className="sr-only">Email</span>
+              </a>
+            </Button>
             <Button>
               <Download className="mr-2 h-4 w-4" />
               Download CV
@@ -47,6 +75,12 @@ export function AcademicProfile() {
         </div>
       </section>
 
+      {/* Mode Toggle - Added here */}
+      <div className="flex justify-center">
+        <ProfileModeToggle />
+      </div>
+
+      {/* Education section */}
       <section id="education" className="py-8">
         <h2 className="text-3xl font-bold mb-8 flex items-center">
           <GraduationCap className="mr-3 h-6 w-6" />

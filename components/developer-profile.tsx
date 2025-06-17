@@ -21,6 +21,7 @@ export function DeveloperProfile() {
 
   return (
     <div className="developer-profile space-y-12">
+      {/* Introduction section */}
       <section className="flex flex-col md:flex-row gap-8 items-center">
         <div className="w-full md:w-1/3">
           <div className="relative w-64 h-64 mx-auto">
@@ -79,6 +80,12 @@ export function DeveloperProfile() {
         </div>
       </section>
 
+      {/* Mode Toggle - Added here */}
+      <div className="flex justify-center">
+        <ProfileModeToggle />
+      </div>
+
+      {/* Projects section */}
       <section id="projects" className="py-8">
         <h2 className="text-3xl font-bold mb-8">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

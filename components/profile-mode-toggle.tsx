@@ -9,33 +9,37 @@ export function ProfileModeToggle() {
   const [mode, setMode] = useState<"developer" | "academic">("developer")
   const [mounted, setMounted] = useState(false)
 
+  // Initialize on mount
   useEffect(() => {
     setMounted(true)
     const savedMode = localStorage.getItem("profileMode") as "developer" | "academic"
     if (savedMode) {
       setMode(savedMode)
+      updateProfileVisibility(savedMode)
     }
   }, [])
 
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem("profileMode", mode)
+  const updateProfileVisibility = (newMode: "developer" | "academic") => {
+    const devProfile = document.querySelector(".developer-profile")
+    const acadProfile = document.querySelector(".author-profile")
 
-      // Hide/show the appropriate profile section
-      const devProfile = document.querySelector(".developer-profile")
-      const acadProfile = document.querySelector(".author-profile")
-
-      if (devProfile && acadProfile) {
-        if (mode === "developer") {
-          devProfile.classList.remove("hidden")
-          acadProfile.classList.add("hidden")
-        } else {
-          devProfile.classList.add("hidden")
-          acadProfile.classList.remove("hidden")
-        }
+    if (devProfile && acadProfile) {
+      if (newMode === "developer") {
+        devProfile.classList.remove("hidden")
+        acadProfile.classList.add("hidden")
+      } else {
+        devProfile.classList.add("hidden")
+        acadProfile.classList.remove("hidden")
       }
     }
-  }, [mode, mounted])
+  }
+
+  const handleModeChange = () => {
+    const newMode = mode === "developer" ? "academic" : "developer"
+    setMode(newMode)
+    localStorage.setItem("profileMode", newMode)
+    updateProfileVisibility(newMode)
+  }
 
   if (!mounted) {
     return <Button variant="outline" size="lg" disabled className="w-64 h-16 text-lg" />
@@ -49,7 +53,7 @@ export function ProfileModeToggle() {
             variant="outline"
             size="lg"
             className="w-64 h-16 text-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium"
-            onClick={() => setMode(mode === "developer" ? "academic" : "developer")}
+            onClick={handleModeChange}
           >
             {mode === "developer" ? (
               <>
@@ -71,4 +75,3 @@ export function ProfileModeToggle() {
     </TooltipProvider>
   )
 }
-
