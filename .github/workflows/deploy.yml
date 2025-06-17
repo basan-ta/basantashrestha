@@ -30,6 +30,10 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm build
+      - name: Configure SSL
+        run: |
+          mkdir -p out/.well-known/pki-validation
+          echo "This site requires HTTPS" > out/.well-known/pki-validation/ssl.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
